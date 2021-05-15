@@ -24,7 +24,7 @@ public class RestWebSecondController {
 		cust.add(customer);
 
 		// Create Response Object
-		Response response = new Response("Done", cust);
+		Response response = new Response("Done", customer);
 		return response;
 	}
 

@@ -25,19 +25,7 @@ $( document ).ready(function() {
 			dataType : 'json',
 			success : function(result) {
 				if(result.status == "Done"){
-					$("#postResultDiv").html("<p style='background-color:#7FA7B0; color:white; padding:20px 20px 20px 20px'>" + 
-												"Post Successfully! <br>" +
-												"---> Customer's Info: FirstName = " + 
-												result.data.firstname + " ,LastName = " + result.data.lastname + "</p>");
-					var employee_data= '';
-					$.each(result.data, function(key, customer){
-						employee_data += '<tr>';
-						employee_data += '<td>' +customer.firstname + '</td>';
-						employee_data += '<td>' +customer.lastname + '</td>';
-						employee_data += '</tr>';
-					});
-
-					$('#employee_table').append(employee_data);
+					$("#postResultDiv").html("<strong>success</strong>");
 				}else{
 					$("#postResultDiv").html("<strong>Error</strong>");
 				}
