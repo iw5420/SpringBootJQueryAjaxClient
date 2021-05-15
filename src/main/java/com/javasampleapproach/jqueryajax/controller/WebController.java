@@ -15,4 +15,15 @@ public class WebController {
     public String secondpage(){
         return "second";
     }
+
+    @GetMapping(value="/third")
+    public String thirdpage(){
+        return "third";
+    }
+
+    @GetMapping(value="/fourth")
+    public String fourthpage(){
+        return "fourth";
+    }
+
 }

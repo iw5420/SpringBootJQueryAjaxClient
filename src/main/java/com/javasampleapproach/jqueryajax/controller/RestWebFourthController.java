@@ -1,24 +1,23 @@
 package com.javasampleapproach.jqueryajax.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
+import com.javasampleapproach.jqueryajax.message.Response;
+import com.javasampleapproach.jqueryajax.model.*;
+import org.springframework.web.bind.annotation.*;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.javasampleapproach.jqueryajax.model.Customer2;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.javasampleapproach.jqueryajax.message.Response;
-import com.javasampleapproach.jqueryajax.model.Customer;
+import java.util.Map;
 
 @RestController
-@RequestMapping("/api/customer")
-public class RestWebController {
+@RequestMapping("/fourth/api/customer")
+public class RestWebFourthController {
 
 	List<Customer> cust = new ArrayList<Customer>();
 	List<Customer2> cust2 = new ArrayList<Customer2>();
+
 	@GetMapping(value = "/all")
 	public Response getResource() {
 		Response response = new Response("Done", cust);
@@ -45,5 +44,14 @@ public class RestWebController {
 		return response;
 	}
 
+	@PostMapping(value = "/save3", headers = "Content-Type=application/json")
+	public Response postCustomer3(@RequestBody String jsonString) {
 
+			Gson gson = new Gson();
+			Smartphone smartphone = gson.fromJson(jsonString, Smartphone.class);
+
+		// Create Response Object
+		Response response = new Response("Done", "1");
+		return response;
+	}
 }

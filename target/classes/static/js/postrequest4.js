@@ -27,13 +27,35 @@ $( document ).ready(function() {
 			test3:'test3'
 		}
     	var formData4 =[formData, formData2,formData3];
-
     	// DO POST
+		var  formData5 = {
+			"query": {
+				"startDate": 1614528000000,
+				"endDate": 1615528000000,
+				"keywords": "王小明"
+			},
+			"pagination": {
+				"current": 1,
+				"pageSize": 10
+			},
+			"sorter": {
+				"field": "acceptDate",
+				"order": "asc"
+			}
+		};
+
+		var  formData6= {
+			"brand": "Apple",
+			"model": {
+			"name": "iPhone",
+				"version": "11 Pro"
+		}
+		}
     	$.ajax({
 			type : "POST",
 			contentType : "application/json",
-			url : window.location + "api/customer/save2",
-			data : JSON.stringify(formData4),
+			url : window.location + "/api/customer/save3",
+			data : JSON.stringify(formData6),
 			dataType : 'json',
 			success : function(result) {
 				if(result.status == "Done"){

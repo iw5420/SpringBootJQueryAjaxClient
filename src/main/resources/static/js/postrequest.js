@@ -13,15 +13,27 @@ $( document ).ready(function() {
     	// PREPARE FORM DATA
     	var formData = {
     		firstname : $("#firstname").val(),
-    		lastname :  $("#lastname").val()
+    		lastname :  $("#lastname").val(),
+			test3:'test3'
     	}
-    	
+		var formData2 = {
+			firstname : $("#firstname").val(),
+			lastname :  $("#lastname").val(),
+			test3:'test3'
+		}
+		var formData3 = {
+			firstname : $("#firstname").val(),
+			lastname :  $("#lastname").val(),
+			test3:'test3'
+		}
+    	var formData4 =[formData, formData2,formData3];
+
     	// DO POST
     	$.ajax({
 			type : "POST",
 			contentType : "application/json",
-			url : window.location + "/api/customer/save",
-			data : JSON.stringify(formData),
+			url : window.location + "api/customer/save2",
+			data : JSON.stringify(formData4),
 			dataType : 'json',
 			success : function(result) {
 				if(result.status == "Done"){
