@@ -23,18 +23,9 @@ public class RestWebSecondController {
 	public Response postCustomer(@RequestBody Customer customer) {
 		cust.add(customer);
 
-		// 回傳List
-		Response response = new Response("Done", generate(10));
+		// Create Response Object
+		Response response = new Response("Done", cust);
 		return response;
 	}
 
-	//生假資料
-	public List<Customer> generate(int i){
-		List<Customer> custList = new ArrayList<>();
-		for(int j = 0; j<i; j++ ){
-			Customer customer= new Customer("number_"+j,"Ian_"+j);
-			custList.add(customer);
-		}
-		return custList;
-	}
 }
